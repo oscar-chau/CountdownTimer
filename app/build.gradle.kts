@@ -1,11 +1,12 @@
 plugins {
    alias(libs.plugins.android.application)
    alias(libs.plugins.jetbrains.kotlin.android)
+   alias(libs.plugins.jetbrains.kotlin.compose)
 }
 
 android {
    namespace = "com.zybooks.countdowntimer"
-   compileSdk = 34
+   compileSdk = 36
 
    defaultConfig {
       applicationId = "com.zybooks.countdowntimer"
@@ -39,9 +40,7 @@ android {
    buildFeatures {
       compose = true
    }
-   composeOptions {
-      kotlinCompilerExtensionVersion = "1.5.1"
-   }
+
    packaging {
       resources {
          excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -60,6 +59,7 @@ dependencies {
    implementation(libs.androidx.ui.tooling.preview)
    implementation(libs.androidx.material3)
    implementation(libs.androidx.lifecycle.viewmodel.compose)
+   implementation(libs.androidx.work.runtime.ktx)
    testImplementation(libs.junit)
    androidTestImplementation(libs.androidx.junit)
    androidTestImplementation(libs.androidx.espresso.core)
